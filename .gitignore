@@ -1,0 +1,5 @@
+.cabal-sandbox/
+cabal.sandbox.config
+dist/
+SDL-0.6.5/
+glove
