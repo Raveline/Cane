@@ -1,5 +1,6 @@
 module Cane.Screen
 ( raiseCane
+, displayBulk
 , test)
 where
 
@@ -18,6 +19,10 @@ test :: IO ()
 test = let f = Font "terminal.png" True 8 8
            s = Screen False "Yolo" 80 60
        in raiseCane f s
+
+displayBulk :: Cane -> [(Position, Tile)] -> IO ()
+displayBulk c = mapM_ (uncurry displayAt) 
+    where displayAt p t = displayTile c t p
 
 -- |Temporary loop function. To refactor.
 loop :: Cane -> IO ()
